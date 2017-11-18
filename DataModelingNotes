@@ -1,0 +1,42 @@
+# Data Modeling Notes
+
+## Normalization Analysis
+  ### 1 NF Converstion
+
+      DataSheet(<u>TName</u>,Location,Phone,<u>MTitle</u>,<u>ShowTime</u>,Rating,<u>CCode</u>,<u>CName</u>)
+
+
+  ### 2 NF Converstion
+        Dependencies
+          TName -> Location , Phone
+          MTitle -> Rating
+
+
+  ### 3 NF Converstion
+      Tables
+        Theater -> (<u>TName</u>,Location,Phone)
+
+        Movies -> (<u>MTitle</u>,Rating)
+
+        Credits -> (<u>MTile</u>,CCode,CName)
+
+        Shows -> (<u>TName,MTitle,ShowTime)
+
+        Artists -> (<u>ArtistID</u>,Name)
+
+       With Surrogate Keys
+        Theater -> (TheaterID , Name , Location , Phone)
+
+        Show -> (ShowID , Showtime , MovieID, TheaterID)
+
+        Movies -> (Title,Rating)
+
+        Credit -> (CreditID, CCode , ArtistID , MovieID)
+
+        Artist -> (ArtistID, Name)
+
+
+  ### BCNF Converstion
+
+## Entity Relationship Model
+![Image](MoviesTonightERD.png)
